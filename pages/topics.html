@@ -26,19 +26,19 @@
         <li><img src="./public/images/home.png" class="ps-3 pe-2"> Home</li>
       </a>
 
-      <a href="#" class="offset-list-item-link">
+      <a href="../index.html" class="offset-list-item-link" target="_blank">
         <li><img src="./public/images/overview.png" class="ps-3 pe-2"> Overview</li>
       </a>
 
-      <a href="#" class="offset-list-item-link">
+      <a href="./topics.html" class="offset-list-item-link" target="_blank">
         <li><img src="./public/images/topic.png" class="ps-3 pe-2"> Topics</li>
       </a>
 
-      <a href="#" class="offset-list-item-link">
+      <a href="./search.html" class="offset-list-item-link" target="_blank">
         <li><img src="./public/images/search.png" class="ps-3 pe-2"> Search</li>
       </a>
 
-      <a href="/management/dashboard" class="offset-list-item-link">
+      <a href="./duplicate-search.html" class="offset-list-item-link">
         <li><img src="./public/images/duplicate.png" class="ps-3 pe-2"> Duplicate search</li>
       </a>
 
@@ -79,7 +79,7 @@
             </ul>
           </div>
         </ul>
-        <div class="hamburger-smalldevices"><i class="fa-solid fa-bars"></i>
+        <div class="hamburger-smalldevices"><img src="/icons/HamburgerIcon.png" alt="" width="24px" height="20px">
         </div>
       </nav>
     </header>
@@ -90,59 +90,51 @@
       <div class="row my-3 gx-3 gy-3 row1-data">
 
 
-        <div class="col-xl-12 col-md-12 d-flex  align-items-center">
-          
 
-            <input type="search" class="form-control" placeholder="Search" value="">
-            <input type="date" class="form-control w-50 ms-3">
 
+        <div class="col-xl-3 col-lg-3 col-md-4 d-flex flex-column align-items-center">
+          <div class="card row1-data-card text-center">
+            <div class="card-header chart-header">
+              <h4>Select</h4>
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-center" id="selectTopic">
+              <select name="" id="" class="form-select" aria-label="Default select example">
+                <option value="">category1</option>
+                <option value="">category2</option>
+                <option value="">category3</option>
+                <option value="">category4</option>
+              </select>
+
+            </div>
+          </div>
         </div>
 
+
+        <div class="col-xl-9 col-lg-9 col-md-8 d-flex flex-column align-items-center">
+          <div class="card row1-data-card text-center">
+            <div class="card-header chart-header">
+              <h4>Topic counts</h4>
+            </div>
+            <div class="card-body d-flex align-items-center justify-content-center" id="barChart">
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- DATA-ROW-2 -->
 
       <div class="row gy-3 gx-3 mb-3 row2-data">
-
         <div class="col-xl-12 col-md-12">
-          <div class="card  customrow-data-card mb-3">
-            <div class="card-body text-left">
-              <h6>File Name: xyz</h6>
-              <p><span style="text-decoration: underline;">Location:</span>  D:\Docify KIbana Data\keywords_output</p>
-              <p><span style="text-decoration: underline;">File Type:</span> Doc</p>
-              <p><span style="text-decoration: underline;">Referendum definition:</span> 1. a vote in which all the people in a country or an area are 
-                asked to give their opinion about or…. Learn more.</p>
-              <p><span style="text-decoration: underline;">Similar files:</span> Referendum Constitution (100%)</p>  
+          <div class="card  row2-data-card">
+            <div class="card-body">
+              <h6>Topic keywords</h6>
+              <div id="topicKeywords" class="mx-auto">
 
+                <canvas id="word_cloud" class="word_cloud" style="width:80%; margin: auto;
+                display: block;"></canvas>
+              </div>
             </div>
           </div>
-
-          <div class="card  customrow-data-card mb-3">
-            <div class="card-body text-left">
-              <h6>File Name: xyz</h6>
-              <p><span style="text-decoration: underline;">Location:</span>  D:\Docify KIbana Data\keywords_output</p>
-              <p><span style="text-decoration: underline;">File Type:</span> Doc</p>
-              <p><span style="text-decoration: underline;">Referendum definition:</span> 1. a vote in which all the people in a country or an area are 
-                asked to give their opinion about or…. Learn more.</p>
-              <p><span style="text-decoration: underline;">Similar files:</span> Referendum Constitution (100%)</p>  
-
-            </div>
-          </div>
-          
-          <div class="card  customrow-data-card mb-3">
-            <div class="card-body text-left">
-              <h6>File Name: xyz</h6>
-              <p><span style="text-decoration: underline;">Location:</span>  D:\Docify KIbana Data\keywords_output</p>
-              <p><span style="text-decoration: underline;">File Type:</span> Doc</p>
-              <p><span style="text-decoration: underline;">Referendum definition:</span> 1. a vote in which all the people in a country or an area are 
-                asked to give their opinion about or…. Learn more.</p>
-              <p><span style="text-decoration: underline;">Similar files:</span> Referendum Constitution (100%)</p>  
-
-            </div>
-          </div>
-
-          
-          
         </div>
 
 
@@ -205,7 +197,8 @@
     chart.render();
 
 
-    var db = [{
+    var db = [
+      {
         "word": "name",
         "freq": 38
       },
